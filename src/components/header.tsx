@@ -60,6 +60,7 @@ export function Header() {
               <Button
                 variant="outline"
                 size="icon"
+                aria-label="Abrir carrinho"
                 className="relative border-gold/30 bg-chamber text-gold hover:bg-gold/10"
               >
                 <ShoppingCart className="size-5" />
