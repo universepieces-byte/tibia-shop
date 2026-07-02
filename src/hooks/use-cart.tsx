@@ -16,9 +16,6 @@ interface CartState {
   removeItem: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
-  total: number;
-  totalCoins: number;
-  itemCount: number;
 }
 
 export const useCart = create<CartState>()(
@@ -54,21 +51,19 @@ export const useCart = create<CartState>()(
         });
       },
       clearCart: () => set({ items: [] }),
-      get total() {
-        return get().items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-      },
-      get totalCoins() {
-        return get().items.reduce(
-          (sum, item) => sum + item.coinAmount * item.quantity,
-          0
-        );
-      },
-      get itemCount() {
-        return get().items.reduce((count, item) => count + item.quantity, 0);
-      },
     }),
     {
       name: "tibia-shop-cart",
     }
   )
 );
+
+export const cartTotal = (items: CartItem[]) =>
+  items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+export const cartTotalCoins = (items: CartItem[]) =>
+  items.reduce((sum, item) => sum + item.coinAmount * item.quantity, 0);
+
+export const cartItemCount = (items: CartItem[]) =>
+  items.reduce((count, item) => count + item.quantity, 0);
+
