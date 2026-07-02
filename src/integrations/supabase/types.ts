@@ -14,16 +14,210 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      order_items: {
+        Row: {
+          coin_amount: number
+          created_at: string
+          id: string
+          order_id: string
+          price_at_purchase: number
+          product_id: string
+          quantity: number
+        }
+        Insert: {
+          coin_amount: number
+          created_at?: string
+          id?: string
+          order_id: string
+          price_at_purchase: number
+          product_id: string
+          quantity?: number
+        }
+        Update: {
+          coin_amount?: number
+          created_at?: string
+          id?: string
+          order_id?: string
+          price_at_purchase?: number
+          product_id?: string
+          quantity?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "order_items_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "order_items_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders: {
+        Row: {
+          character_name: string
+          created_at: string
+          id: string
+          notes: string | null
+          payment_method: string
+          payment_provider: string | null
+          payment_provider_id: string | null
+          server: string
+          status: string
+          total: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          character_name: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          payment_method?: string
+          payment_provider?: string | null
+          payment_provider_id?: string | null
+          server: string
+          status?: string
+          total: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          character_name?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          payment_method?: string
+          payment_provider?: string | null
+          payment_provider_id?: string | null
+          server?: string
+          status?: string
+          total?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      products: {
+        Row: {
+          active: boolean
+          coin_amount: number
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          is_popular: boolean
+          name: string
+          price: number
+          slug: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          coin_amount: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          is_popular?: boolean
+          name: string
+          price: number
+          slug: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          coin_amount?: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          is_popular?: boolean
+          name?: string
+          price?: number
+          slug?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          character_name: string | null
+          created_at: string
+          email: string | null
+          id: string
+          name: string | null
+          server: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          character_name?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string | null
+          server?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          character_name?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string | null
+          server?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "customer"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +344,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "customer"],
+    },
   },
 } as const
