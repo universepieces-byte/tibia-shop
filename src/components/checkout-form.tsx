@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { useCart } from "@/hooks/use-cart";
+import { useCart, cartTotal } from "@/hooks/use-cart";
 import { createOrder } from "@/lib/orders.functions";
 import { checkoutSchema } from "@/lib/schemas";
 
@@ -20,7 +20,9 @@ interface CheckoutFormProps {
 
 export function CheckoutForm({ user, defaultCharacterName = "", defaultServer = "" }: CheckoutFormProps) {
   const navigate = useNavigate();
-  const { items, total, clearCart } = useCart();
+  const items = useCart((state) => state.items);
+  const total = cartTotal(items);
+  const clearCart = useCart((state) => state.clearCart);
   const createOrderFn = useServerFn(createOrder);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

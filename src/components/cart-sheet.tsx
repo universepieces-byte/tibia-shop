@@ -2,15 +2,17 @@ import { Link } from "@tanstack/react-router";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/hooks/use-cart";
+import { useCart, cartTotal } from "@/hooks/use-cart";
 
 interface CartSheetProps {
   onClose: () => void;
 }
 
 export function CartSheet({ onClose }: CartSheetProps) {
-  const { items, removeItem, updateQuantity, total, clearCart } = useCart();
+  const items = useCart((state) => state.items);
+  const { removeItem, updateQuantity, clearCart } = useCart();
 
+  const total = cartTotal(items);
   const formattedTotal = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",

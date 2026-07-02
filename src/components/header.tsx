@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useCart } from "@/hooks/use-cart";
+import { useCart, cartItemCount } from "@/hooks/use-cart";
 import { useAuth } from "@/hooks/use-auth";
 import { CartSheet } from "./cart-sheet";
 
@@ -12,7 +12,7 @@ export function Header() {
   const router = useRouter();
   const { user, isAdmin } = useAuth();
   const [cartOpen, setCartOpen] = useState(false);
-  const itemCount = useCart((state) => state.itemCount);
+  const itemCount = cartItemCount(useCart((state) => state.items));
 
   const handleLogout = async () => {
     const { supabase } = await import("@/integrations/supabase/client");
