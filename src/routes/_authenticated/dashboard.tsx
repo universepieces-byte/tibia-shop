@@ -17,7 +17,10 @@ export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
     meta: [
       { title: "Área do Cliente — Tibia Shop" },
-      { name: "description", content: "Acompanhe seus pedidos de Tibia Coins e gerencie seus dados na Tibia Shop." },
+      {
+        name: "description",
+        content: "Acompanhe seus pedidos de Tibia Coins e gerencie seus dados na Tibia Shop.",
+      },
     ],
   }),
 });
@@ -71,7 +74,10 @@ function Dashboard() {
                 <h2 className="mb-6 font-display text-lg text-gold">Meus Dados</h2>
                 <form onSubmit={handleSave} className="space-y-4">
                   <div>
-                    <Label htmlFor="name" className="text-xs uppercase tracking-widest text-muted-foreground">
+                    <Label
+                      htmlFor="name"
+                      className="text-xs uppercase tracking-widest text-muted-foreground"
+                    >
                       <User className="mr-1 inline size-3" />
                       Nome
                     </Label>
@@ -83,7 +89,10 @@ function Dashboard() {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="character_name" className="text-xs uppercase tracking-widest text-muted-foreground">
+                    <Label
+                      htmlFor="character_name"
+                      className="text-xs uppercase tracking-widest text-muted-foreground"
+                    >
                       <Package className="mr-1 inline size-3" />
                       Personagem padrão
                     </Label>
@@ -95,7 +104,10 @@ function Dashboard() {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="server" className="text-xs uppercase tracking-widest text-muted-foreground">
+                    <Label
+                      htmlFor="server"
+                      className="text-xs uppercase tracking-widest text-muted-foreground"
+                    >
                       <Server className="mr-1 inline size-3" />
                       Servidor padrão
                     </Label>
@@ -107,11 +119,17 @@ function Dashboard() {
                     />
                   </div>
                   {message && (
-                    <p className={`text-sm ${message.includes("sucesso") ? "text-gold" : "text-destructive"}`}>
+                    <p
+                      className={`text-sm ${message.includes("sucesso") ? "text-gold" : "text-destructive"}`}
+                    >
                       {message}
                     </p>
                   )}
-                  <Button type="submit" disabled={saving} className="w-full bg-gold text-void hover:bg-gold/90">
+                  <Button
+                    type="submit"
+                    disabled={saving}
+                    className="w-full bg-gold text-void hover:bg-gold/90"
+                  >
                     <Save className="mr-2 size-4" />
                     {saving ? "Salvando..." : "Salvar dados"}
                   </Button>

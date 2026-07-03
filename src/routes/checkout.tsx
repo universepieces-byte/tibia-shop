@@ -23,7 +23,7 @@ const profileQueryOptions = () => ({
 function Checkout() {
   const { user } = useAuth();
   const { data: profile } = useSuspenseQuery(
-    user ? profileQueryOptions() : { ...profileQueryOptions(), queryFn: () => null }
+    user ? profileQueryOptions() : { ...profileQueryOptions(), queryFn: () => null },
   );
 
   return (
@@ -31,8 +31,12 @@ function Checkout() {
       <div className="hero-glow pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 opacity-30" />
       <div className="mx-auto max-w-3xl px-6">
         <div className="mb-8 text-center">
-          <h1 className="font-display text-3xl font-bold text-white md:text-4xl">Finalizar Pedido</h1>
-          <p className="mt-2 text-sm text-muted-foreground">Revise seu inventário e preencha os dados para entrega.</p>
+          <h1 className="font-display text-3xl font-bold text-white md:text-4xl">
+            Finalizar Pedido
+          </h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Revise seu inventário e preencha os dados para entrega.
+          </p>
         </div>
         <CheckoutForm
           user={user}

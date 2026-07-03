@@ -79,10 +79,7 @@ export function Header() {
           {user ? (
             <div className="hidden items-center gap-3 md:flex">
               <Link to="/dashboard">
-                <Button
-                  variant="outline"
-                  className="border-gold/30 text-gold hover:bg-gold/10"
-                >
+                <Button variant="outline" className="border-gold/30 text-gold hover:bg-gold/10">
                   <User className="mr-2 size-4" />
                   ÁREA DO CLIENTE
                 </Button>
@@ -113,20 +110,32 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="border-gold/10 bg-chamber">
               <nav className="mt-8 flex flex-col gap-4">
-                <Link to="/" className="font-display text-sm tracking-widest text-foreground hover:text-gold">
+                <Link
+                  to="/"
+                  className="font-display text-sm tracking-widest text-foreground hover:text-gold"
+                >
                   COINS
                 </Link>
-                <Link to="/checkout" className="font-display text-sm tracking-widest text-foreground hover:text-gold">
+                <Link
+                  to="/checkout"
+                  className="font-display text-sm tracking-widest text-foreground hover:text-gold"
+                >
                   CHECKOUT
                 </Link>
                 {isAdmin && (
-                  <Link to="/admin" className="font-display text-sm tracking-widest text-gold hover:text-gold/80">
+                  <Link
+                    to="/admin"
+                    className="font-display text-sm tracking-widest text-gold hover:text-gold/80"
+                  >
                     ADMIN
                   </Link>
                 )}
                 {user ? (
                   <>
-                    <Link to="/dashboard" className="font-display text-sm tracking-widest text-foreground hover:text-gold">
+                    <Link
+                      to="/dashboard"
+                      className="font-display text-sm tracking-widest text-foreground hover:text-gold"
+                    >
                       ÁREA DO CLIENTE
                     </Link>
                     <button
@@ -137,7 +146,10 @@ export function Header() {
                     </button>
                   </>
                 ) : (
-                  <Link to="/auth" className="font-display text-sm tracking-widest text-gold hover:text-gold/80">
+                  <Link
+                    to="/auth"
+                    className="font-display text-sm tracking-widest text-gold hover:text-gold/80"
+                  >
                     ENTRAR
                   </Link>
                 )}

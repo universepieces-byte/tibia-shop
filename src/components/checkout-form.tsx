@@ -18,7 +18,11 @@ interface CheckoutFormProps {
   defaultServer?: string;
 }
 
-export function CheckoutForm({ user, defaultCharacterName = "", defaultServer = "" }: CheckoutFormProps) {
+export function CheckoutForm({
+  user,
+  defaultCharacterName = "",
+  defaultServer = "",
+}: CheckoutFormProps) {
   const navigate = useNavigate();
   const items = useCart((state) => state.items);
   const total = cartTotal(items);
@@ -86,7 +90,9 @@ export function CheckoutForm({ user, defaultCharacterName = "", defaultServer = 
         <h2 className="font-display mb-6 text-2xl text-white">Finalizar Pedido</h2>
 
         <div className="mb-6 border-b border-gold/10 pb-6">
-          <h3 className="mb-4 font-display text-sm tracking-widest text-gold">RESUMO DO INVENTÁRIO</h3>
+          <h3 className="mb-4 font-display text-sm tracking-widest text-gold">
+            RESUMO DO INVENTÁRIO
+          </h3>
           <div className="space-y-2">
             {items.map((item) => (
               <div key={item.productId} className="flex justify-between text-sm">
@@ -103,7 +109,9 @@ export function CheckoutForm({ user, defaultCharacterName = "", defaultServer = 
             ))}
           </div>
           <div className="mt-4 flex justify-between border-t border-gold/10 pt-4">
-            <span className="font-display text-sm uppercase tracking-widest text-muted-foreground">Total</span>
+            <span className="font-display text-sm uppercase tracking-widest text-muted-foreground">
+              Total
+            </span>
             <span className="font-display text-2xl text-gold">{formattedTotal}</span>
           </div>
         </div>
@@ -111,7 +119,10 @@ export function CheckoutForm({ user, defaultCharacterName = "", defaultServer = 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid gap-6 md:grid-cols-2">
             <div>
-              <Label htmlFor="character_name" className="text-xs uppercase tracking-widest text-muted-foreground">
+              <Label
+                htmlFor="character_name"
+                className="text-xs uppercase tracking-widest text-muted-foreground"
+              >
                 <User className="mr-1 inline size-3" />
                 Personagem
               </Label>
@@ -125,7 +136,10 @@ export function CheckoutForm({ user, defaultCharacterName = "", defaultServer = 
               />
             </div>
             <div>
-              <Label htmlFor="server" className="text-xs uppercase tracking-widest text-muted-foreground">
+              <Label
+                htmlFor="server"
+                className="text-xs uppercase tracking-widest text-muted-foreground"
+              >
                 <Server className="mr-1 inline size-3" />
                 Servidor
               </Label>
@@ -147,24 +161,37 @@ export function CheckoutForm({ user, defaultCharacterName = "", defaultServer = 
             </Label>
             <RadioGroup
               value={form.payment_method}
-              onValueChange={(value) => setForm({ ...form, payment_method: value as "pix" | "manual" })}
+              onValueChange={(value) =>
+                setForm({ ...form, payment_method: value as "pix" | "manual" })
+              }
               className="mt-4 grid grid-cols-2 gap-4"
             >
               <div className="border border-gold/10 bg-chamber p-4 has-[[data-state=checked]]:border-gold/40">
                 <RadioGroupItem value="pix" id="pix" className="border-gold/30 text-gold" />
-                <Label htmlFor="pix" className="ml-2 text-sm text-foreground">PIX</Label>
-                <p className="mt-1 text-xs text-muted-foreground">Você receberá os dados para pagamento.</p>
+                <Label htmlFor="pix" className="ml-2 text-sm text-foreground">
+                  PIX
+                </Label>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Você receberá os dados para pagamento.
+                </p>
               </div>
               <div className="border border-gold/10 bg-chamber p-4 has-[[data-state=checked]]:border-gold/40">
                 <RadioGroupItem value="manual" id="manual" className="border-gold/30 text-gold" />
-                <Label htmlFor="manual" className="ml-2 text-sm text-foreground">Manual</Label>
-                <p className="mt-1 text-xs text-muted-foreground">Negociar diretamente com o vendedor.</p>
+                <Label htmlFor="manual" className="ml-2 text-sm text-foreground">
+                  Manual
+                </Label>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Negociar diretamente com o vendedor.
+                </p>
               </div>
             </RadioGroup>
           </div>
 
           <div>
-            <Label htmlFor="notes" className="text-xs uppercase tracking-widest text-muted-foreground">
+            <Label
+              htmlFor="notes"
+              className="text-xs uppercase tracking-widest text-muted-foreground"
+            >
               <MessageSquare className="mr-1 inline size-3" />
               Observações
             </Label>
@@ -180,7 +207,11 @@ export function CheckoutForm({ user, defaultCharacterName = "", defaultServer = 
 
           {error && <p className="text-sm text-destructive">{error}</p>}
 
-          <Button type="submit" disabled={loading || items.length === 0} className="w-full bg-gold text-void hover:bg-gold/90">
+          <Button
+            type="submit"
+            disabled={loading || items.length === 0}
+            className="w-full bg-gold text-void hover:bg-gold/90"
+          >
             {loading ? "Finalizando..." : "Confirmar Pedido"}
           </Button>
 

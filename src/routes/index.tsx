@@ -11,7 +11,11 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Tibia Shop — Tibia Coins com entrega rápida" },
-      { name: "description", content: "Compre Tibia Coins com segurança, entrega rápida e pagamento facilitado. Pacotes de 250 a 4500 coins para abastecer sua jornada em Tibia." },
+      {
+        name: "description",
+        content:
+          "Compre Tibia Coins com segurança, entrega rápida e pagamento facilitado. Pacotes de 250 a 4500 coins para abastecer sua jornada em Tibia.",
+      },
     ],
   }),
 });
@@ -38,7 +42,8 @@ function Index() {
             Abasteça sua jornada em <span className="text-gold">Tibia</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
-            Adquira Tibia Coins com segurança, pagamento facilitado e entrega rápida. Escolha seu pacote e receba diretamente no jogo.
+            Adquira Tibia Coins com segurança, pagamento facilitado e entrega rápida. Escolha seu
+            pacote e receba diretamente no jogo.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a href="#pacotes">
@@ -47,7 +52,10 @@ function Index() {
               </Button>
             </a>
             <a href="/checkout">
-              <Button variant="outline" className="border-gold/30 px-8 py-6 text-sm font-bold uppercase tracking-widest text-gold hover:bg-gold/10">
+              <Button
+                variant="outline"
+                className="border-gold/30 px-8 py-6 text-sm font-bold uppercase tracking-widest text-gold hover:bg-gold/10"
+              >
                 Checkout Rápido
               </Button>
             </a>
@@ -56,18 +64,30 @@ function Index() {
           <div className="mt-16 grid gap-6 md:grid-cols-3">
             <div className="border border-gold/10 bg-chamber p-6 text-center">
               <Shield className="mx-auto mb-4 size-8 text-gold" />
-              <h3 className="font-display text-sm uppercase tracking-widest text-foreground">Compra Segura</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Transações protegidas e dados criptografados.</p>
+              <h3 className="font-display text-sm uppercase tracking-widest text-foreground">
+                Compra Segura
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Transações protegidas e dados criptografados.
+              </p>
             </div>
             <div className="border border-gold/10 bg-chamber p-6 text-center">
               <Clock className="mx-auto mb-4 size-8 text-gold" />
-              <h3 className="font-display text-sm uppercase tracking-widest text-foreground">Entrega Rápida</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Receba suas coins em até 5 minutos após confirmação.</p>
+              <h3 className="font-display text-sm uppercase tracking-widest text-foreground">
+                Entrega Rápida
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Receba suas coins em até 5 minutos após confirmação.
+              </p>
             </div>
             <div className="border border-gold/10 bg-chamber p-6 text-center">
               <Lock className="mx-auto mb-4 size-8 text-gold" />
-              <h3 className="font-display text-sm uppercase tracking-widest text-foreground">Suporte 24h</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Atendimento dedicado para tirar qualquer dúvida.</p>
+              <h3 className="font-display text-sm uppercase tracking-widest text-foreground">
+                Suporte 24h
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Atendimento dedicado para tirar qualquer dúvida.
+              </p>
             </div>
           </div>
         </div>
@@ -81,7 +101,8 @@ function Index() {
               Escolha seu <span className="text-gold">pacote</span>
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Pacotes de Tibia Coins para todos os tipos de jogadores — de aventureiros a guildas inteiras.
+              Pacotes de Tibia Coins para todos os tipos de jogadores — de aventureiros a guildas
+              inteiras.
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

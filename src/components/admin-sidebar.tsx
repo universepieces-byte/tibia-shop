@@ -21,7 +21,10 @@ export function AdminSidebar() {
       </div>
 
       <Link to="/">
-        <Button variant="ghost" className="mb-6 w-full justify-start text-muted-foreground hover:text-gold">
+        <Button
+          variant="ghost"
+          className="mb-6 w-full justify-start text-muted-foreground hover:text-gold"
+        >
           <ChevronLeft className="mr-2 size-4" />
           Voltar ao site
         </Button>

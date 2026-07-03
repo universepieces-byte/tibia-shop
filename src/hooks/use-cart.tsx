@@ -27,9 +27,7 @@ export const useCart = create<CartState>()(
         if (existing) {
           set({
             items: get().items.map((i) =>
-              i.productId === item.productId
-                ? { ...i, quantity: i.quantity + 1 }
-                : i
+              i.productId === item.productId ? { ...i, quantity: i.quantity + 1 } : i,
             ),
           });
         } else {
@@ -45,17 +43,15 @@ export const useCart = create<CartState>()(
           return;
         }
         set({
-          items: get().items.map((i) =>
-            i.productId === productId ? { ...i, quantity } : i
-          ),
+          items: get().items.map((i) => (i.productId === productId ? { ...i, quantity } : i)),
         });
       },
       clearCart: () => set({ items: [] }),
     }),
     {
       name: "tibia-shop-cart",
-    }
-  )
+    },
+  ),
 );
 
 export const cartTotal = (items: CartItem[]) =>
@@ -66,4 +62,3 @@ export const cartTotalCoins = (items: CartItem[]) =>
 
 export const cartItemCount = (items: CartItem[]) =>
   items.reduce((count, item) => count + item.quantity, 0);
-

@@ -29,7 +29,11 @@ function AdminDashboard() {
     { label: "Total de Pedidos", value: stats?.totalOrders ?? 0, icon: ShoppingBag },
     { label: "Pendentes", value: stats?.pendingOrders ?? 0, icon: Clock },
     { label: "Clientes", value: stats?.totalCustomers ?? 0, icon: Users },
-    { label: "Receita (pedidos pagos)", value: formatCurrency(stats?.totalRevenue ?? 0), icon: TrendingUp },
+    {
+      label: "Receita (pedidos pagos)",
+      value: formatCurrency(stats?.totalRevenue ?? 0),
+      icon: TrendingUp,
+    },
   ];
 
   return (
@@ -39,7 +43,9 @@ function AdminDashboard() {
         {cards.map((card) => (
           <div key={card.label} className="border border-gold/10 bg-chamber p-6">
             <div className="mb-4 flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">{card.label}</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                {card.label}
+              </span>
               <card.icon className="size-5 text-gold" />
             </div>
             <p className="font-display text-2xl font-bold text-white">{card.value}</p>

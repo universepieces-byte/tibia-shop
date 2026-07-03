@@ -80,19 +80,29 @@ export function OrderList({ orders, isAdmin, onUpdate }: OrderListProps) {
         </div>
       ) : (
         orders.map((order) => (
-          <div key={order.id} className="overflow-hidden rounded-lg border border-gold/10 bg-chamber">
+          <div
+            key={order.id}
+            className="overflow-hidden rounded-lg border border-gold/10 bg-chamber"
+          >
             <div
               className="flex cursor-pointer items-center justify-between p-4 hover:bg-gold/5"
               onClick={() => setExpanded(expanded === order.id ? null : order.id)}
             >
               <div className="space-y-1">
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-xs text-muted-foreground">#{order.id.slice(0, 8)}</span>
-                  <Badge variant={statusVariants[order.status] ?? "outline"}>{statusLabels[order.status]}</Badge>
+                  <span className="font-mono text-xs text-muted-foreground">
+                    #{order.id.slice(0, 8)}
+                  </span>
+                  <Badge variant={statusVariants[order.status] ?? "outline"}>
+                    {statusLabels[order.status]}
+                  </Badge>
                 </div>
                 <p className="text-sm text-foreground">
-                  {order.order_items?.reduce((sum, item) => sum + item.coin_amount * item.quantity, 0) ?? 0} coins —{" "}
-                  {formatPrice(order.total)}
+                  {order.order_items?.reduce(
+                    (sum, item) => sum + item.coin_amount * item.quantity,
+                    0,
+                  ) ?? 0}{" "}
+                  coins — {formatPrice(order.total)}
                 </p>
                 {isAdmin && order.profile && (
                   <p className="text-xs text-muted-foreground">
@@ -101,8 +111,14 @@ export function OrderList({ orders, isAdmin, onUpdate }: OrderListProps) {
                 )}
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-xs text-muted-foreground">{formatDate(order.created_at)}</span>
-                {expanded === order.id ? <ChevronUp className="size-4" /> : <ChevronDown className="size-4" />}
+                <span className="text-xs text-muted-foreground">
+                  {formatDate(order.created_at)}
+                </span>
+                {expanded === order.id ? (
+                  <ChevronUp className="size-4" />
+                ) : (
+                  <ChevronDown className="size-4" />
+                )}
               </div>
             </div>
 
@@ -110,7 +126,9 @@ export function OrderList({ orders, isAdmin, onUpdate }: OrderListProps) {
               <div className="border-t border-gold/10 bg-void p-4">
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
-                    <h4 className="mb-2 font-display text-xs uppercase tracking-widest text-gold">Detalhes da entrega</h4>
+                    <h4 className="mb-2 font-display text-xs uppercase tracking-widest text-gold">
+                      Detalhes da entrega
+                    </h4>
                     <p className="text-sm text-foreground">
                       Personagem: <span className="text-gold">{order.character_name}</span>
                     </p>
@@ -118,18 +136,22 @@ export function OrderList({ orders, isAdmin, onUpdate }: OrderListProps) {
                       Servidor: <span className="text-gold">{order.server}</span>
                     </p>
                     <p className="text-sm text-foreground">
-                      Pagamento: <span className="capitalize text-gold">{order.payment_method}</span>
+                      Pagamento:{" "}
+                      <span className="capitalize text-gold">{order.payment_method}</span>
                     </p>
                     {order.notes && (
                       <p className="mt-2 text-sm text-muted-foreground">Obs: {order.notes}</p>
                     )}
                   </div>
                   <div>
-                    <h4 className="mb-2 font-display text-xs uppercase tracking-widest text-gold">Itens</h4>
+                    <h4 className="mb-2 font-display text-xs uppercase tracking-widest text-gold">
+                      Itens
+                    </h4>
                     <ul className="space-y-1 text-sm text-muted-foreground">
                       {order.order_items?.map((item) => (
                         <li key={item.id}>
-                          {item.quantity}x {item.product?.name ?? "Produto"} ({item.coin_amount * item.quantity} coins)
+                          {item.quantity}x {item.product?.name ?? "Produto"} (
+                          {item.coin_amount * item.quantity} coins)
                         </li>
                       ))}
                     </ul>
@@ -144,7 +166,11 @@ export function OrderList({ orders, isAdmin, onUpdate }: OrderListProps) {
                         variant={order.status === status ? "default" : "outline"}
                         size="sm"
                         onClick={() => handleStatusChange(order.id, status)}
-                        className={order.status === status ? "bg-gold text-void" : "border-gold/30 text-gold hover:bg-gold/10"}
+                        className={
+                          order.status === status
+                            ? "bg-gold text-void"
+                            : "border-gold/30 text-gold hover:bg-gold/10"
+                        }
                       >
                         {label}
                       </Button>

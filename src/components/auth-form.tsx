@@ -80,10 +80,16 @@ export function AuthForm() {
         <div className="bg-void p-8">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="mb-6 grid w-full grid-cols-2 bg-chamber">
-              <TabsTrigger value="login" className="font-display text-xs tracking-widest data-[state=active]:bg-gold data-[state=active]:text-void">
+              <TabsTrigger
+                value="login"
+                className="font-display text-xs tracking-widest data-[state=active]:bg-gold data-[state=active]:text-void"
+              >
                 ENTRAR
               </TabsTrigger>
-              <TabsTrigger value="signup" className="font-display text-xs tracking-widest data-[state=active]:bg-gold data-[state=active]:text-void">
+              <TabsTrigger
+                value="signup"
+                className="font-display text-xs tracking-widest data-[state=active]:bg-gold data-[state=active]:text-void"
+              >
                 CRIAR CONTA
               </TabsTrigger>
             </TabsList>
@@ -91,7 +97,10 @@ export function AuthForm() {
             <TabsContent value="login">
               <form onSubmit={handleLogin} className="space-y-4">
                 <div>
-                  <Label htmlFor="login-email" className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <Label
+                    htmlFor="login-email"
+                    className="text-xs uppercase tracking-widest text-muted-foreground"
+                  >
                     Email
                   </Label>
                   <div className="relative mt-2">
@@ -107,7 +116,10 @@ export function AuthForm() {
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="login-password" className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <Label
+                    htmlFor="login-password"
+                    className="text-xs uppercase tracking-widest text-muted-foreground"
+                  >
                     Senha
                   </Label>
                   <div className="relative mt-2">
@@ -123,7 +135,11 @@ export function AuthForm() {
                   </div>
                 </div>
                 {error && <p className="text-sm text-destructive">{error}</p>}
-                <Button type="submit" disabled={loading} className="w-full bg-gold text-void hover:bg-gold/90">
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-gold text-void hover:bg-gold/90"
+                >
                   {loading ? "Entrando..." : "Entrar"}
                 </Button>
               </form>
@@ -132,7 +148,10 @@ export function AuthForm() {
             <TabsContent value="signup">
               <form onSubmit={handleSignup} className="space-y-4">
                 <div>
-                  <Label htmlFor="signup-name" className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <Label
+                    htmlFor="signup-name"
+                    className="text-xs uppercase tracking-widest text-muted-foreground"
+                  >
                     Nome
                   </Label>
                   <div className="relative mt-2">
@@ -148,7 +167,10 @@ export function AuthForm() {
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="signup-email" className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <Label
+                    htmlFor="signup-email"
+                    className="text-xs uppercase tracking-widest text-muted-foreground"
+                  >
                     Email
                   </Label>
                   <div className="relative mt-2">
@@ -164,7 +186,10 @@ export function AuthForm() {
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="signup-password" className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <Label
+                    htmlFor="signup-password"
+                    className="text-xs uppercase tracking-widest text-muted-foreground"
+                  >
                     Senha
                   </Label>
                   <div className="relative mt-2">
@@ -180,7 +205,11 @@ export function AuthForm() {
                   </div>
                 </div>
                 {error && <p className="text-sm text-destructive">{error}</p>}
-                <Button type="submit" disabled={loading} className="w-full bg-gold text-void hover:bg-gold/90">
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-gold text-void hover:bg-gold/90"
+                >
                   {loading ? "Criando conta..." : "Criar conta"}
                 </Button>
               </form>

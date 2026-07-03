@@ -39,7 +39,11 @@ export function CartSheet({ onClose }: CartSheetProps) {
           <div className="flex h-full flex-col items-center justify-center text-muted-foreground">
             <ShoppingBag className="mb-4 size-12 opacity-20" />
             <p className="text-sm">Seu baú está vazio.</p>
-            <Button onClick={onClose} variant="outline" className="mt-4 border-gold/30 text-gold hover:bg-gold/10">
+            <Button
+              onClick={onClose}
+              variant="outline"
+              className="mt-4 border-gold/30 text-gold hover:bg-gold/10"
+            >
               Continuar comprando
             </Button>
           </div>
@@ -102,9 +106,7 @@ export function CartSheet({ onClose }: CartSheetProps) {
             <span className="text-lg font-bold text-gold">{formattedTotal}</span>
           </div>
           <Link to="/checkout" onClick={onClose}>
-            <Button className="w-full bg-gold text-void hover:bg-gold/90">
-              Finalizar Compra
-            </Button>
+            <Button className="w-full bg-gold text-void hover:bg-gold/90">Finalizar Compra</Button>
           </Link>
         </div>
       )}

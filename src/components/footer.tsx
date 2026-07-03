@@ -12,9 +12,15 @@ export function Footer() {
             </p>
           </div>
           <div className="flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
-            <Link to="/" className="hover:text-gold">Termos</Link>
-            <Link to="/" className="hover:text-gold">Privacidade</Link>
-            <Link to="/" className="hover:text-gold">Suporte</Link>
+            <Link to="/" className="hover:text-gold">
+              Termos
+            </Link>
+            <Link to="/" className="hover:text-gold">
+              Privacidade
+            </Link>
+            <Link to="/" className="hover:text-gold">
+              Suporte
+            </Link>
           </div>
         </div>
       </div>

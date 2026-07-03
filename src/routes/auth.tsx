@@ -6,7 +6,10 @@ export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
       { title: "Entrar — Tibia Shop" },
-      { name: "description", content: "Entre ou crie sua conta na Tibia Shop para comprar Tibia Coins com segurança." },
+      {
+        name: "description",
+        content: "Entre ou crie sua conta na Tibia Shop para comprar Tibia Coins com segurança.",
+      },
     ],
   }),
 });
